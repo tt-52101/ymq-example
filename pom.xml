@@ -14,6 +14,7 @@
     <modules>
         <module>ymq-alibaba-otter-canal</module>
         <module>ymq-apache-phoenix</module>
+        <module>ymq-thread</module>
     </modules>
 
 
