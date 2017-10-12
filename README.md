@@ -1,6 +1,5 @@
-# ymq-example
 
-一些笔记，测试代码
+# 一些笔记，测试代码
 
 # ymq-alibaba-otter-canal
 
