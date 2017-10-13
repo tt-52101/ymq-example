@@ -50,6 +50,7 @@
                 </includes>
             </resource>
         </resources>
+
         <pluginManagement>
             <plugins>
                 <plugin>

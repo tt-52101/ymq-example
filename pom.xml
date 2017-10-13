@@ -15,6 +15,7 @@
         <module>ymq-alibaba-otter-canal</module>
         <module>ymq-apache-phoenix</module>
         <module>ymq-thread</module>
+        <module>ymq-redis</module>
     </modules>
 
 
