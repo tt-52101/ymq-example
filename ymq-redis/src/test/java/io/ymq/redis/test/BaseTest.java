@@ -2,10 +2,19 @@ package io.ymq.redis.test;
 
 import io.ymq.redis.jedis.JedisClusterUtils;
 import io.ymq.redis.jedis.JedisSentinelUtils;
+import io.ymq.redis.jedis.utils.CacheUtils;
 import org.junit.Test;
 
+/**
+ * 描述: redis 工具类测试
+ * author: yanpenglei
+ * Date: 2017/10/13 17:50
+ */
 public class BaseTest {
 
+    /**
+     * java JedisCluster 操作 redis 集群
+     */
     @Test
     public void clusterTest() {
 
@@ -15,7 +24,9 @@ public class BaseTest {
 
     }
 
-
+    /**
+     * java Jedis 操作 redis 单实例
+     */
     @Test
     public void sentineTest() {
 
@@ -24,4 +35,18 @@ public class BaseTest {
         System.out.println(JedisSentinelUtils.getString("sentine-key"));
 
     }
+
+    /**
+     * cacheUtils 操作 redis 集群
+     */
+    @Test
+    public void cacheUtilsTest() {
+
+        CacheUtils.saveString("cluster-key", "www.ymq.io");
+
+        System.out.println(CacheUtils.getString("cluster-key"));
+
+    }
+
+
 }
