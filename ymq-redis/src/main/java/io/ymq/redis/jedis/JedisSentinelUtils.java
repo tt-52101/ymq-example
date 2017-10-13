@@ -22,10 +22,33 @@ public class JedisSentinelUtils {
     static {
 
         JedisPoolConfig config = new JedisPoolConfig();
+
+        //最大连接数, 默认8个
         config.setMaxTotal(1000);
+
+        //大空闲连接数, 默认8个
         config.setMaxIdle(10);
+
+        //获取连接时的最大等待毫秒数(如果设置为阻塞时BlockWhenExhausted),如果超时就抛异常, 小于零:阻塞不确定的时间,  默认-1
         config.setMaxWaitMillis(3000);
-        config.setTestOnBorrow(true);
+
+        //--------以下配置默认就可以-----------
+
+        //最小空闲连接数, 默认0
+        config.setMinIdle(0);
+
+        //是否启用pool的jmx管理功能, 默认true
+        config.setJmxEnabled(true);
+
+        //是否启用后进先出, 默认true
+        config.setLifo(true);
+
+        //在获取连接的时候检查有效性, 默认false
+        config.setTestOnBorrow(false);
+
+        //在空闲时检查有效性, 默认false
+        config.setTestWhileIdle(false);
+
         JedisPool pool = new JedisPool(config, "127.0.0.1", 6379);
 
         LOG.info("JedisPoolConfig:{}", JSONObject.toJSONString(config));
