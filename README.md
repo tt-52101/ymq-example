@@ -22,3 +22,7 @@
 ## ymq-redis-spring-boot 
 
 [Spring Boot 中使用 Redis](http://www.ymq.io/2017/10/13/redis-jedis-spring-boot-example/)
+
+## ymq-rabbitmq-spring-boot
+
+[Spring Boot 中使用 RabbitMQ](http://www.ymq.io/2017/10/16/rabbitmq-spring-boot-example/)
