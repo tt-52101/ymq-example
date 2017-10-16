@@ -18,3 +18,7 @@
 ## ymq-redis
 
 [使用 Jedis 连接操作 Redis](http://www.ymq.io/2017/10/13/redis-jedis-example/)
+
+## ymq-redis-spring-boot 
+
+[Spring Boot 中使用 Redis](http://www.ymq.io/2017/10/13/redis-jedis-spring-boot-example/)
