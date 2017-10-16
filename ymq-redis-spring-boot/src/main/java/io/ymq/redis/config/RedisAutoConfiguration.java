@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Import;
  * @author yanpenglei
  * @create 2017-10-16 14:50
  **/
+
 @Configuration
 @Import({RedisConfig.class, CacheUtils.class})
 public class RedisAutoConfiguration {

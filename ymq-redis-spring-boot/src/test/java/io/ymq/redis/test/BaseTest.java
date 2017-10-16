@@ -9,7 +9,7 @@ import io.ymq.redis.run.Application;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * 描述:
+ * 描述:测试类
  *
  * @author yanpenglei
  * @create 2017-10-16 13:18
@@ -21,9 +21,9 @@ public class BaseTest {
     @Test
     public void test() throws Exception {
 
-        CacheUtils.hashSet("ymq", "test", "11111111111111");
+        CacheUtils.hashSet("test", "ymq", "www.ymq.io");
 
-        System.out.println(CacheUtils.hashGet("ymq", "test"));
+        System.out.println(CacheUtils.hashGet("test", "ymq"));
     }
 
 
