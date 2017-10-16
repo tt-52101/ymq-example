@@ -22,5 +22,4 @@ public class Sender {
 
         this.rabbitTemplate.convertAndSend("hello", context + ":" + new Date());
     }
-
 }

@@ -24,7 +24,6 @@ public class BaseTest {
     @Test
     public void test() throws Exception {
 
-        sender.send("test");
+        sender.send("www.ymq.io");
     }
-
 }
