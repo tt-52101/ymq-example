@@ -10,7 +10,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * 描述:
+ * 描述: 配置 RedisTemplate 实例
  *
  * @author yanpenglei
  * @create 2017-10-16 12:27

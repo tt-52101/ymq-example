@@ -22,11 +22,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;
 
 /**
- * 描述:
- *
- * @author yanpenglei
- * @create 2017-10-16 13:19
- **/
+ * 描述: 操作redis 工具类
+ * author: yanpenglei
+ * Date: 2017/10/13 15:01
+ */
 public class CacheUtils {
 
     @Resource
