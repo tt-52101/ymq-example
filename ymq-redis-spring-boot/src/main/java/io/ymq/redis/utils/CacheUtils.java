@@ -68,10 +68,9 @@ public class CacheUtils {
     }
 
     /**
-     * @param key 缓存Key
-     * @return keyValue
-     * @author:mijp
-     * @since:2017/1/16 13:23
+     * key 缓存Key
+     * @param key
+     * @return
      */
     public static String getFromSet(String key) {
         return cacheUtils.redisTemplate.opsForSet().pop(key);
