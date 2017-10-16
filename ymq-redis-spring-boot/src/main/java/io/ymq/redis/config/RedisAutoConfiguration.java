@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * 描述: 注入 配置对象
+ * 描述: 注册配置类到容器
  *
  * @author yanpenglei
  * @create 2017-10-16 14:50
