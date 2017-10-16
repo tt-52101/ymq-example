@@ -26,5 +26,4 @@ public class BaseTest {
         System.out.println(CacheUtils.hashGet("test", "ymq"));
     }
 
-
 }
