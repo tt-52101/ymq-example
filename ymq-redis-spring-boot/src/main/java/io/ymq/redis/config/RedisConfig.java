@@ -20,7 +20,6 @@ public class RedisConfig {
 
     private Logger LOG = LoggerFactory.getLogger(RedisConfig.class);
 
-
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
         return new JedisConnectionFactory();
