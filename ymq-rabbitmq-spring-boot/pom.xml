@@ -1,30 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>io.ymq</artifactId>
+        <groupId>io.ymq.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.ymq.example</groupId>
-    <artifactId>io.ymq</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>ymq-rabbitmq-spring-boot</artifactId>
 
-    <version>1.0-SNAPSHOT</version>
-    <name>YmqExample</name>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!--
+                不是每个人都喜欢从spring-boot-starter-parentPOM 继承。
+                您可能有自己的公司标准的 parent，您需要使用，或者您可能只希望明确声明所有的Maven配置。
+                您仍然可以通过使用scope=import 依赖关系来保持依赖关系管理
+                -->
+                <!-- 官方引用 https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-maven-without-a-parent-->
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>1.5.7.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
-    <modules>
-        <module>ymq-alibaba-otter-canal</module>
-        <module>ymq-apache-phoenix</module>
-        <module>ymq-thread</module>
-        <module>ymq-redis</module>
-        <module>ymq-redis-spring-boot</module>
-        <module>ymq-rabbitmq-spring-boot</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.38</version>
+        </dependency>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-    </properties>
+    </dependencies>
+
 
     <build>
         <resources>
@@ -73,5 +97,6 @@
             </plugins>
         </pluginManagement>
     </build>
+
 
 </project>
