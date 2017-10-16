@@ -21,8 +21,9 @@ public class BaseTest {
     @Test
     public void test() throws Exception {
 
-        CacheUtils.setSave("test", "sss");
-        CacheUtils.getString("test");
+        CacheUtils.hashSet("ymq", "test", "11111111111111");
+
+        System.out.println(CacheUtils.hashGet("ymq", "test"));
     }
 
 
