@@ -30,6 +30,7 @@ public class RedisConfig {
         RedisTemplate<String, String> template = new RedisTemplate<String, String>();
         template.setConnectionFactory(jedisConnectionFactory());
         template.setKeySerializer(new StringRedisSerializer());
+        LOG.info("create RedisTemplate success");
         return template;
     }
 }
