@@ -1,10 +1,7 @@
 package io.ymq.kafka.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
-
-import java.util.Queue;
 
 
 /**
@@ -16,6 +13,5 @@ import java.util.Queue;
 @Configuration
 @EnableKafka
 public class KafkaConfiguration {
-
 
 }

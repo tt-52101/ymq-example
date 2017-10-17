@@ -18,5 +18,4 @@ public class MsgConsumer {
         System.out.println("消息被消费"+content);
     }
 
-
 }
