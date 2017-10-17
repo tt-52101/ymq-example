@@ -36,12 +36,10 @@ public class MsgProducer {
         kafkaTemplate.setProducerListener(new ProducerListener<String, String>() {
             @Override
             public void onSuccess(String topic, Integer partition, String key, String value, RecordMetadata recordMetadata) {
-                log.info("ProducerListener onSuccess");
             }
 
             @Override
             public void onError(String topic, Integer partition, String key, String value, Exception exception) {
-                log.info("ProducerListener onError");
             }
 
             @Override
@@ -51,6 +49,5 @@ public class MsgProducer {
             }
         });
     }
-
 
 }

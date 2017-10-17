@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+
 /**
  * 描述: 测试 kafka
  *
@@ -24,8 +25,7 @@ public class BaseTest {
     @Test
     public void test() throws Exception {
 
-        msgProducer.sendMessage("topic-1","topic--------1");
-        msgProducer.sendMessage("topic-2","topic--------2");
-
+        msgProducer.sendMessage("topic-1", "topic--------1");
+        msgProducer.sendMessage("topic-2", "topic--------2");
     }
 }
