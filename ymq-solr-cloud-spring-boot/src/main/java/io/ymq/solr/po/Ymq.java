@@ -69,4 +69,5 @@ public class Ymq {
     public void setYmqText(String ymqText) {
         this.ymqText = ymqText;
     }
+
 }
