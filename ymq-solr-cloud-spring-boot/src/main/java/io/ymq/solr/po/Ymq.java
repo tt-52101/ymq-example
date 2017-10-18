@@ -5,6 +5,8 @@ import org.apache.solr.client.solrj.beans.Field;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
+import java.io.Serializable;
+
 /**
  * 描述: 映射的实体类必须有@ID主键
  *
@@ -12,11 +14,11 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
  * @create 2017-10-17 18:28
  **/
 @SolrDocument(solrCoreName = "test_collection")
-public class Ymq {
+public class Ymq implements Serializable {
 
     @Id
     @Field
-    private String ymqId;
+    private String id;
 
     @Field
     private String ymqTitle;
@@ -27,15 +29,13 @@ public class Ymq {
     @Field
     private String ymqContent;
 
-    @Field
-    private String ymqText;
 
-    public String getYmqId() {
-        return ymqId;
+    public String getId() {
+        return id;
     }
 
-    public void setYmqId(String ymqId) {
-        this.ymqId = ymqId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getYmqTitle() {
@@ -61,13 +61,4 @@ public class Ymq {
     public void setYmqContent(String ymqContent) {
         this.ymqContent = ymqContent;
     }
-
-    public String getYmqText() {
-        return ymqText;
-    }
-
-    public void setYmqText(String ymqText) {
-        this.ymqText = ymqText;
-    }
-
 }

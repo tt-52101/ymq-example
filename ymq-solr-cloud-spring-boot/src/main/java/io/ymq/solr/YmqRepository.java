@@ -17,6 +17,6 @@ import java.util.List;
  **/
 public interface YmqRepository extends SolrCrudRepository<Ymq, String> {
 
-    @Query("ymqTitle:*?0*")
+    @Query(" ymqTitle:*?0* ")
     public List<Ymq> findByQueryAnnotation(String ymqTitle);
 }

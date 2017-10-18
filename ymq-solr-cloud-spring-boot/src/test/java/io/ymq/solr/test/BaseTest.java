@@ -5,9 +5,11 @@ import io.ymq.solr.YmqRepository;
 import io.ymq.solr.po.Ymq;
 import io.ymq.solr.run.Startup;
 import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.CloudSolrClient;
 
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.common.SolrDocumentList;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -34,31 +37,44 @@ public class BaseTest {
     @Autowired
     private CloudSolrClient cloudSolrClient;
 
-
+    /**
+     * 使用 ymqRepository 方式新增
+     *
+     * @throws Exception
+     */
     @Test
-    public void testYmqRepository() throws Exception {
+    public void testAddYmqRepository() {
 
-        Ymq ymq = new Ymq();
-        ymq.setYmqId("4");
-        ymq.setYmqTitle("test");
-        ymq.setYmqUrl("www.ymq.io");
-        ymq.setYmqContent("test content");
-        ymq.setYmqText("text content");
+        Ymq ymq1 = new Ymq();
+        ymq1.setId("1");
+        ymq1.setYmqTitle("penglei");
+        ymq1.setYmqUrl("www_ymq_io");
+        ymq1.setYmqContent("ymqContent");
 
-        ymqRepository.save(ymq);
+        Ymq ymq2 = new Ymq();
+        ymq2.setId("2");//
+        ymq2.setYmqTitle("penglei");
+        ymq2.setYmqUrl("www_ymq_io");
+        ymq2.setYmqContent("ymqContent");
+
+        ymqRepository.save(ymq1);
+        ymqRepository.save(ymq2);
     }
 
 
-
+    /**
+     * 使用 cloudSolrClient 方式新增
+     *
+     * @throws Exception
+     */
     @Test
-    public void testCloudSolrClient() throws Exception {
+    public void testAddCloudSolrClient() throws IOException, SolrServerException {
 
         Ymq ymq = new Ymq();
-        ymq.setYmqId("5");
-        ymq.setYmqTitle("test");
+        ymq.setId("3");
+        ymq.setYmqTitle("penglei");
         ymq.setYmqUrl("www_ymq_io");
-        ymq.setYmqContent("test content");
-        ymq.setYmqText("text content");
+        ymq.setYmqContent("ymqContent");
 
         cloudSolrClient.setDefaultCollection("test_collection");
         cloudSolrClient.connect();
@@ -67,32 +83,71 @@ public class BaseTest {
         cloudSolrClient.commit();
     }
 
+    /**
+     * 删除数据
+     */
+    @Test
+    public void testDelete() {
+
+        Ymq ymq = new Ymq();
+        ymq.setId("4");
+        ymq.setYmqTitle("delete_penglei");
+        ymq.setYmqUrl("www_ymq_io");
+        ymq.setYmqContent("ymqContent");
+
+        // 添加一条测试数据，用于删除的测试数据
+        ymqRepository.save(ymq);
+
+        // 通过标题查询数据ID
+        List<Ymq> list = ymqRepository.findByQueryAnnotation("delete_penglei");
+
+        for (Ymq item : list) {
+
+            System.out.println("查询响应 :"+JSONObject.toJSONString(item));
+
+            //通过主键 ID 删除
+            ymqRepository.delete(item.getId());
+        }
+
+    }
+
+    /**
+     * data JPA 方式查询
+     *
+     * @throws Exception
+     */
     @Test
     public void testYmqRepositorySearch() throws Exception {
 
-        List<Ymq> list = ymqRepository.findByQueryAnnotation("test");
+        List<Ymq> list = ymqRepository.findByQueryAnnotation("penglei");
 
-        for (Ymq ymq : list) {
-            System.out.println(JSONObject.toJSONString(ymq));
+        for (Ymq item : list) {
+            System.out.println(" data JPA 方式查询响应 :"+JSONObject.toJSONString(item));
         }
     }
 
+    /**
+     * SolrQuery 语法查询
+     *
+     * @throws Exception
+     */
     @Test
     public void testYmqSolrQuery() throws Exception {
 
         SolrQuery query = new SolrQuery();
 
-        String ymqTitle="test";
+        String ymqTitle = "penglei";
 
-        query.setQuery("ymqTitle:*"+ymqTitle);
+        query.setQuery(" ymqTitle:*" + ymqTitle + "* ");
 
         cloudSolrClient.setDefaultCollection("test_collection");
         cloudSolrClient.connect();
         QueryResponse response = cloudSolrClient.query(query);
+
         List<Ymq> list = response.getBeans(Ymq.class);
 
-        for (Ymq ymq : list) {
-            System.out.println(JSONObject.toJSONString(ymq));
+        for (Ymq item : list) {
+            System.out.println("SolrQuery 语法查询响应 :"+JSONObject.toJSONString(item));
         }
     }
 
