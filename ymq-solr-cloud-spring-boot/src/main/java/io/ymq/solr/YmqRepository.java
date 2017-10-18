@@ -14,8 +14,7 @@ import java.util.List;
  * @author yanpenglei
  * @create 2017-10-18 10:34
  **/
-
-@Repository
 public interface YmqRepository extends SolrCrudRepository<Ymq, String> {
+
 
 }
