@@ -4,6 +4,7 @@ import io.ymq.solr.po.Ymq;
 import org.springframework.data.solr.repository.SolrCrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,7 +14,8 @@ import java.util.List;
  * @author yanpenglei
  * @create 2017-10-18 10:34
  **/
-@Component
+
+@Repository
 public interface YmqRepository extends SolrCrudRepository<Ymq, String> {
 
 }
