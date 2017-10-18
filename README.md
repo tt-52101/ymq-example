@@ -30,3 +30,7 @@
 ## ymq-kafka-spring-boot
 
 [Spring Boot 中使用 kafka](http://www.ymq.io/2017/10/17/kafka-spring-boot-example/)
+
+##ymq-solr-cloud-spring-boot
+
+[Spring Boot 中使用 SolrCloud](http://www.ymq.io/2017/10/18/solr-cloud-spring-boot-example/)
