@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.solr.repository.config.EnableSolrRepositories;
 
 /**
- * 描述:
+ * 描述: 开启 CloudSolrClient 连接
  *
  * @author yanpenglei
  * @create 2017-10-18 18:15
  **/
 @Configuration
-@EnableSolrRepositories(basePackages = { "io.ymq.solr" }, multicoreSupport = true)
+@EnableSolrRepositories(basePackages = {"io.ymq.solr"}, multicoreSupport = true)
 public class SolrConfig {
 
     @Value("${spring.data.solr.zk-host}")

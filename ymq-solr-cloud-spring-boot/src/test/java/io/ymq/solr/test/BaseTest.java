@@ -1,17 +1,22 @@
 package io.ymq.solr.test;
 
+import com.alibaba.fastjson.JSONObject;
 import io.ymq.solr.YmqRepository;
 import io.ymq.solr.po.Ymq;
 import io.ymq.solr.run.Startup;
+import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.impl.CloudSolrClient;
-import org.junit.Before;
+
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
+import java.util.List;
+
 
 /**
  * 描述: 测试 solr cloud
@@ -29,6 +34,7 @@ public class BaseTest {
     @Autowired
     private CloudSolrClient cloudSolrClient;
 
+
     @Test
     public void testYmqRepository() throws Exception {
 
@@ -42,6 +48,8 @@ public class BaseTest {
         ymqRepository.save(ymq);
     }
 
+
+
     @Test
     public void testCloudSolrClient() throws Exception {
 
@@ -52,11 +60,40 @@ public class BaseTest {
         ymq.setYmqContent("test content");
         ymq.setYmqText("text content");
 
-
         cloudSolrClient.setDefaultCollection("test_collection");
         cloudSolrClient.connect();
 
         cloudSolrClient.addBean(ymq);
         cloudSolrClient.commit();
     }
+
+    @Test
+    public void testYmqRepositorySearch() throws Exception {
+
+        List<Ymq> list = ymqRepository.findByQueryAnnotation("test");
+
+        for (Ymq ymq : list) {
+            System.out.println(JSONObject.toJSONString(ymq));
+        }
+    }
+
+    @Test
+    public void testYmqSolrQuery() throws Exception {
+
+        SolrQuery query = new SolrQuery();
+
+        String ymqTitle="test";
+
+        query.setQuery("ymqTitle:*"+ymqTitle);
+
+        cloudSolrClient.setDefaultCollection("test_collection");
+        cloudSolrClient.connect();
+        QueryResponse response = cloudSolrClient.query(query);
+        List<Ymq> list = response.getBeans(Ymq.class);
+
+        for (Ymq ymq : list) {
+            System.out.println(JSONObject.toJSONString(ymq));
+        }
+    }
+
 }
