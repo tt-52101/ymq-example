@@ -1,7 +1,6 @@
 package io.ymq.solr;
 
 import io.ymq.solr.po.Ymq;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.solr.repository.SolrCrudRepository;
 
 import org.springframework.data.solr.repository.Query;
