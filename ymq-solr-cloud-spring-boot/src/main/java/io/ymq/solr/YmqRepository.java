@@ -16,6 +16,12 @@ import java.util.List;
  **/
 public interface YmqRepository extends SolrCrudRepository<Ymq, String> {
 
+    /**
+     * 通过标题查询
+     *
+     * @param ymqTitle
+     * @return
+     */
     @Query(" ymqTitle:*?0* ")
     public List<Ymq> findByQueryAnnotation(String ymqTitle);
 }
