@@ -64,7 +64,7 @@ public class DruidMonitConfig {
     @Bean
     public JdkRegexpMethodPointcut druidStatPointcut() {
         JdkRegexpMethodPointcut druidStatPointcut = new JdkRegexpMethodPointcut();
-        String patterns = "io.ymq.fm*";
+        String patterns = "io.ymq.mybatis*";
         druidStatPointcut.setPatterns(patterns);
         return druidStatPointcut;
     }
