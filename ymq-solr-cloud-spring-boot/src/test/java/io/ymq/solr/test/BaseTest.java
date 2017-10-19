@@ -2,8 +2,11 @@ package io.ymq.solr.test;
 
 import com.alibaba.fastjson.JSONObject;
 import io.ymq.solr.YmqRepository;
+import io.ymq.solr.pagehelper.PageInfo;
+import io.ymq.solr.pagehelper.RowBounds;
 import io.ymq.solr.po.Ymq;
 import io.ymq.solr.run.Startup;
+import io.ymq.solr.utils.BaseSolr;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.CloudSolrClient;
@@ -34,6 +37,9 @@ public class BaseTest {
 
     @Autowired
     private CloudSolrClient cloudSolrClient;
+
+    @Autowired
+    private BaseSolr baseSolr;
 
     /**
      * 使用 ymqRepository 方式新增
@@ -101,7 +107,7 @@ public class BaseTest {
 
         for (Ymq item : list) {
 
-            System.out.println("查询响应 :"+JSONObject.toJSONString(item));
+            System.out.println("查询响应 :" + JSONObject.toJSONString(item));
 
             //通过主键 ID 删除
             ymqRepository.delete(item.getId());
@@ -120,7 +126,7 @@ public class BaseTest {
         List<Ymq> list = ymqRepository.findByQueryAnnotation("penglei");
 
         for (Ymq item : list) {
-            System.out.println(" data JPA 方式查询响应 :"+JSONObject.toJSONString(item));
+            System.out.println(" data JPA 方式查询响应 :" + JSONObject.toJSONString(item));
         }
     }
 
@@ -145,8 +151,52 @@ public class BaseTest {
         List<Ymq> list = response.getBeans(Ymq.class);
 
         for (Ymq item : list) {
-            System.out.println("SolrQuery 语法查询响应 :"+JSONObject.toJSONString(item));
+            System.out.println("SolrQuery 语法查询响应 :" + JSONObject.toJSONString(item));
         }
     }
+
+    /**
+     * 使用 baseSolr 工具类 查询
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testBaseSolrQuery() throws Exception {
+
+        SolrQuery query = new SolrQuery();
+
+        String ymqTitle = "penglei";
+        String defaultCollection = "test_collection";
+
+        query.setQuery(" ymqTitle:*" + ymqTitle + "* ");
+
+        List<Ymq> list = baseSolr.query(defaultCollection, Ymq.class, query);
+
+        for (Ymq item : list) {
+            System.out.println("baseSolr 工具类  查询响应 :" + JSONObject.toJSONString(item));
+        }
+    }
+
+
+    /**
+     * 使用 baseSolr 工具类 分页 查询
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testBaseSolrPageInfoQuery() throws Exception {
+
+        SolrQuery query = new SolrQuery();
+
+        String ymqTitle = "penglei";
+        String defaultCollection = "test_collection";
+
+        query.setQuery(" ymqTitle:*" + ymqTitle + "* ");
+
+        PageInfo pageInfo = baseSolr.query(defaultCollection, Ymq.class, query,new RowBounds(0,2));
+
+        System.out.println("使用 baseSolr 工具类 分页 查询响应 :" + JSONObject.toJSONString(pageInfo));
+    }
+
 
 }
