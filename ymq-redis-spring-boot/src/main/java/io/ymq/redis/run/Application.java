@@ -1,13 +1,11 @@
 package io.ymq.redis.run;
 
-import com.sun.corba.se.spi.activation.Server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 
 /**
  * 描述: 启动服务

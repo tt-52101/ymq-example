@@ -20,6 +20,7 @@
         <module>ymq-rabbitmq-spring-boot</module>
         <module>ymq-kafka-spring-boot</module>
         <module>ymq-solr-cloud-spring-boot</module>
+        <module>ymq-mybatis-spring-boot</module>
     </modules>
 
     <properties>
