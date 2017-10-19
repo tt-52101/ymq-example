@@ -28,11 +28,15 @@ public class BaseTest {
     @Test
     public void test() throws Exception {
 
-        List<SysConfigPo> sysConfigPoList = ymqBaseDao.selectList(new SysConfigPo());
+        for (int i = 0; i < 10000; i++) {
+            Thread.sleep(100);
+            List<SysConfigPo> sysConfigPoList = ymqBaseDao.selectList(new SysConfigPo());
 
-        for (SysConfigPo item : sysConfigPoList) {
-            System.out.println("查询结果："+JSONObject.toJSONString(item));
+            for (SysConfigPo item : sysConfigPoList) {
+                System.out.println("查询结果："+JSONObject.toJSONString(item));
+            }
         }
+
 
     }
 }
