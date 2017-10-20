@@ -72,7 +72,7 @@ public class TopicRabbitConfig {
      */
     @Bean
     Binding bindingExchangeYmq(Queue queueYmq, TopicExchange exchange) {
-        return BindingBuilder.bind(queueYmq).to(exchange).with("topic.messages#");
+        return BindingBuilder.bind(queueYmq).to(exchange).with("topic.ymq#");
     }
 
 }
