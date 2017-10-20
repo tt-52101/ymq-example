@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-@RabbitListener(queues = "topic.messages")
+@RabbitListener(queues = "topic.message.s")
 public class TopicReceiver2 {
 
    @RabbitHandler
     public void process(String messages) {
-        System.out.println("TopicReceiver2 topic.messages: " + messages);
+        System.out.println("TopicReceiver2 topic.message.s: " + messages);
     }
 
 }

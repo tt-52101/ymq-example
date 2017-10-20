@@ -30,17 +30,17 @@ public class BaseTest {
     @Test
     public void test1() throws Exception {
 
-        sender.sendMS1("ms1111111111111111111111");
+        sender.sendMS1("此消息，只有Receiver1 Receiver3 可以收到");
     }
 
     @Test
     public void test2() throws Exception {
 
-        sender.sendMS2("ms2222222222222222222222");
+        sender.sendMS2("此消息，只有Receiver2 Receiver3 可以收到");
     }
     @Test
     public void test3() throws Exception {
 
-        sender.sendMS3("ms3333333333333333333333");
+        sender.sendMS3("此消息，只有 Receiver3 可以收到");
     }
 }

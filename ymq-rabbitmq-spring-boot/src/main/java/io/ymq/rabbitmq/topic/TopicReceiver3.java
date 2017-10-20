@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @RabbitListener(queues = "topic.ymq")
 public class TopicReceiver3 {
 
-   @RabbitHandler
+    @RabbitHandler
     public void process(String ymq) {
         System.out.println("TopicReceiver3 topic.ymq: " + ymq);
     }

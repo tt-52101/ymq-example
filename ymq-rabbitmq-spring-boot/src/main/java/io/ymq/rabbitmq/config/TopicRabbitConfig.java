@@ -22,9 +22,8 @@ public class TopicRabbitConfig {
         return new Queue("hello");
     }
 
-
     final static String message = "topic.message";
-    final static String messages = "topic.messages";
+    final static String messages = "topic.message.s";
 
     final static String ymq = "topic.ymq";
 
@@ -51,28 +50,19 @@ public class TopicRabbitConfig {
         return new TopicExchange("topicExchange");
     }
 
-    /**
-     * 綁定主题 queueMessage() 到 topicExchange 交换机
-     */
     @Bean
     Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message");
+        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message.#");
     }
 
-    /**
-     * 綁定主题 queueMessages() 到 topicExchange 主题交换机
-     */
     @Bean
     Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange) {
-
-        return BindingBuilder.bind(queueMessages).to(exchange).with("topic.messages");
+        //綁定队列 queueMessages() 到 topicExchange 交换机
+        return BindingBuilder.bind(queueMessages).to(exchange).with("topic.message.s");
     }
-    /**
-     * 綁定主题  queueYmq() 到 topicExchange主题交换机
-     */
     @Bean
     Binding bindingExchangeYmq(Queue queueYmq, TopicExchange exchange) {
-        return BindingBuilder.bind(queueYmq).to(exchange).with("topic.ymq#");
+        return BindingBuilder.bind(queueYmq).to(exchange).with("topic.#");
     }
 
 }
