@@ -26,4 +26,21 @@ public class BaseTest {
 
         sender.send("www.ymq.io");
     }
+
+    @Test
+    public void test1() throws Exception {
+
+        sender.sendMS1("ms1111111111111111111111");
+    }
+
+    @Test
+    public void test2() throws Exception {
+
+        sender.sendMS2("ms2222222222222222222222");
+    }
+    @Test
+    public void test3() throws Exception {
+
+        sender.sendMS3("ms3333333333333333333333");
+    }
 }

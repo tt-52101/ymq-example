@@ -22,4 +22,23 @@ public class Sender {
 
         this.rabbitTemplate.convertAndSend("hello", context + ":" + new Date());
     }
+
+
+    public void sendMS1(String context) {
+
+        System.out.println("sendMS : " + context);
+        this.rabbitTemplate.convertAndSend("topicExchange", "topic.message", context);
+    }
+
+    public void sendMS2(String context) {
+
+        System.out.println("sendMS2 : " + context);
+        this.rabbitTemplate.convertAndSend("topicExchange", "topic.messages", context);
+    }
+
+    public void sendMS3(String context) {
+
+        System.out.println("sendMS3 : " + context);
+        this.rabbitTemplate.convertAndSend("topicExchange", "topic.ymq", context);
+    }
 }
