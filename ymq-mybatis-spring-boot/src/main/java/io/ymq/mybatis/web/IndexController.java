@@ -30,11 +30,12 @@ public class IndexController {
     @Autowired
     private YmqTwoBaseDao ymqTwoBaseDao;
 
-    @RequestMapping("/one")
-    public String indexOne() throws Exception {
+    @RequestMapping("/")
+    public String index() throws Exception {
 
         List<TestOnePo> testOnePoList = null;
-        for (int i = 0; i < 10; i++) {
+
+        for (int i = 0; i < 5; i++) {
             Thread.sleep(100);
             testOnePoList = ymqOneBaseDao.selectList(new TestOnePo());
 
@@ -43,14 +44,8 @@ public class IndexController {
             }
         }
 
-        return "数据源 ymqOneBaseDao ：查询结果:" + JSONObject.toJSONString(testOnePoList);
-    }
-
-    @RequestMapping("/two")
-    public String indexTwo() throws Exception {
-
         List<TestTwoPo> testTwoPoList = null;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Thread.sleep(100);
             testTwoPoList = ymqTwoBaseDao.selectList(new TestTwoPo());
 
@@ -59,6 +54,11 @@ public class IndexController {
             }
         }
 
-        return "数据源 ymqTwoBaseDao：查询结果:" + JSONObject.toJSONString(testTwoPoList);
+        String onePoList = JSONObject.toJSONString(testOnePoList);
+        String twoPoList = JSONObject.toJSONString(testTwoPoList);
+
+        return "数据源 ymqOneBaseDao ：查询结果:" + onePoList + "<br/> 数据源 ymqTwoBaseDao ：查询结果:" + twoPoList;
     }
+
+
 }

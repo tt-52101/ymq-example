@@ -35,10 +35,11 @@ public class BaseTest {
     private YmqTwoBaseDao ymqTwoBaseDao;
 
     @Test
-    public void indexOneTest() throws Exception {
+    public void test() throws Exception {
 
         List<TestOnePo> testOnePoList = null;
-        for (int i = 0; i < 10; i++) {
+
+        for (int i = 0; i < 5; i++) {
             Thread.sleep(100);
             testOnePoList = ymqOneBaseDao.selectList(new TestOnePo());
 
@@ -47,13 +48,8 @@ public class BaseTest {
             }
         }
 
-    }
-
-    @Test
-    public void indexTwoTest() throws Exception {
-
         List<TestTwoPo> testTwoPoList = null;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Thread.sleep(100);
             testTwoPoList = ymqTwoBaseDao.selectList(new TestTwoPo());
 
@@ -61,7 +57,7 @@ public class BaseTest {
                 LOG.info("数据源 ymqTwoBaseDao：查询结果:{}", JSONObject.toJSONString(item));
             }
         }
-    }
 
+    }
 
 }

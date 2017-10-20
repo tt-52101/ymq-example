@@ -14,7 +14,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(value = {"io.ymq.mybatis"})
 public class Startup {
 
-
     public static void main(String[] args) {
         SpringApplication.run(Startup.class, args);
     }
