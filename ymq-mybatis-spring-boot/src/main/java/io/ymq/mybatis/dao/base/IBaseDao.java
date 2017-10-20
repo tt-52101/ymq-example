@@ -5,7 +5,7 @@ package io.ymq.mybatis.dao.base;
 import java.util.List;
 
 /**
- * 描述:
+ * 描述: IBaseDao
  * author: yanpenglei
  * Date: 2017/9/8 19:50
  */

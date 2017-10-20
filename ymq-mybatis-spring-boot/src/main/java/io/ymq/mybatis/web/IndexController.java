@@ -53,6 +53,4 @@ public class IndexController {
 
         return "数据源 ymqOneBaseDao ：查询结果:" + onePoList + "<br/> 数据源 ymqTwoBaseDao ：查询结果:" + twoPoList;
     }
-
-
 }
