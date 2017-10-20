@@ -35,23 +35,17 @@ public class IndexController {
 
         List<TestOnePo> testOnePoList = null;
 
-        for (int i = 0; i < 5; i++) {
-            Thread.sleep(100);
-            testOnePoList = ymqOneBaseDao.selectList(new TestOnePo());
-
-            for (TestOnePo item : testOnePoList) {
-                LOG.info("数据源 ymqOneBaseDao ：查询结果:{}", JSONObject.toJSONString(item));
-            }
+        testOnePoList = ymqOneBaseDao.selectList(new TestOnePo());
+        for (TestOnePo item : testOnePoList) {
+            LOG.info("数据源 ymqOneBaseDao ：查询结果:{}", JSONObject.toJSONString(item));
         }
 
         List<TestTwoPo> testTwoPoList = null;
-        for (int i = 0; i < 5; i++) {
-            Thread.sleep(100);
-            testTwoPoList = ymqTwoBaseDao.selectList(new TestTwoPo());
 
-            for (TestTwoPo item : testTwoPoList) {
-                LOG.info("数据源 ymqTwoBaseDao：查询结果:{}", JSONObject.toJSONString(item));
-            }
+        testTwoPoList = ymqTwoBaseDao.selectList(new TestTwoPo());
+
+        for (TestTwoPo item : testTwoPoList) {
+            LOG.info("数据源 ymqTwoBaseDao：查询结果:{}", JSONObject.toJSONString(item));
         }
 
         String onePoList = JSONObject.toJSONString(testOnePoList);
