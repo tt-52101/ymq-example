@@ -17,9 +17,9 @@ import org.springframework.util.StringUtils;
 import javax.annotation.Resource;
 
 /**
- * druid监控配置
- *
- * @author QIANG
+ * 描述: druid监控配置
+ * author: yanpenglei
+ * Date: 2017/10/20 11:00
  */
 @EnableConfigurationProperties(DruidDbProperties.class)
 @EnableAspectJAutoProxy(proxyTargetClass = true)
@@ -33,10 +33,13 @@ public class DruidMonitConfig {
         ServletRegistrationBean reg = new ServletRegistrationBean();
         reg.setServlet(new StatViewServlet());
         reg.addUrlMappings("/druid/*");
-        if (!StringUtils.isEmpty(druidDbProperties.getAllow()))
+
+        if (!StringUtils.isEmpty(druidDbProperties.getAllow())) {
             reg.addInitParameter("allow", druidDbProperties.getAllow()); // 白名单
-        if (!StringUtils.isEmpty(druidDbProperties.getDeny()))
+        }
+        if (!StringUtils.isEmpty(druidDbProperties.getDeny())) {
             reg.addInitParameter("deny", druidDbProperties.getDeny()); // 黑名单
+        }
         reg.addInitParameter("loginUsername", druidDbProperties.getUsername());
         reg.addInitParameter("loginPassword", druidDbProperties.getPassword());
         return reg;
