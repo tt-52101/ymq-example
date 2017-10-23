@@ -2,17 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>io.ymq</artifactId>
-        <groupId>io.ymq.example</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ymq-mybatis-spring-boot</artifactId>
+    <groupId>io.ymq.example</groupId>
+    <artifactId>io.ymq.mybatis.spring.boot</artifactId>
+    <packaging>jar</packaging>
 
+    <version>1.0-SNAPSHOT</version>
+    <name>ymq-mybatis-spring-boot</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
 
     <properties>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -27,27 +34,6 @@
         <mysql.version>5.1.36</mysql.version>
 
     </properties>
-
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <!--
-                不是每个人都喜欢从spring-boot-starter-parentPOM 继承。
-                您可能有自己的公司标准的 parent，您需要使用，或者您可能只希望明确声明所有的Maven配置。
-                您仍然可以通过使用scope=import 依赖关系来保持依赖关系管理
-                -->
-                <!-- 官方引用 https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-maven-without-a-parent-->
-                <!-- Import dependency management from Spring Boot -->
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>1.5.7.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
 
     <dependencies>
 
@@ -69,7 +55,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        
+
         <!-- commons-->
         <dependency>
             <groupId>commons-io</groupId>
@@ -141,6 +127,25 @@
             <version>3.1.0</version>
         </dependency>
 
-
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
 </project>
