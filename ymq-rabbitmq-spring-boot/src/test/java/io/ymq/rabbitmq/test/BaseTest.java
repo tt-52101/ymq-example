@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * 描述:
+ * 描述:单元测试
  *
  * @author yanpenglei
  * @create 2017-10-16 17:06
@@ -28,19 +28,33 @@ public class BaseTest {
     }
 
     @Test
-    public void test1() throws Exception {
+    public void testTopic1() throws Exception {
 
-        sender.sendMS1("此消息，只有Receiver1 Receiver3 可以收到");
+        sender.sendMS1("此消息，有 TopicReceiver1 TopicReceiver2 TopicReceiver3 可以收到");
     }
 
     @Test
-    public void test2() throws Exception {
+    public void testTopic2() throws Exception {
 
-        sender.sendMS2("此消息，只有Receiver2 Receiver3 可以收到");
+        sender.sendMS2("此消息，有 TopicReceiver2 TopicReceiver3  可以收到");
     }
+
     @Test
-    public void test3() throws Exception {
+    public void testTopic3() throws Exception {
 
-        sender.sendMS3("此消息，只有 Receiver3 可以收到");
+        sender.sendMS3("此消息，有 TopicReceiver3 可以收到");
     }
+
+    @Test
+    public void testFanout1() throws Exception {
+
+        sender.sendMS4("此消息，有 FanoutReceiver1 FanoutReceiver2  可以收到");
+    }
+
+    @Test
+    public void testFanout2() throws Exception {
+
+        sender.sendMS5("此消息，有 FanoutReceiver1 FanoutReceiver2  可以收到");
+    }
+
 }

@@ -7,9 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import java.io.IOException;
 
 /**
- * 描述:  启动服务
- * author: yanpenglei
- * Date: 2017/10/16 16:58
+ * 描述: 启动服务
+ * @author: yanpenglei
+ * @create: 2017/10/23 14:14
  */
 @SpringBootApplication
 @ComponentScan(value = {"io.ymq.rabbitmq"})

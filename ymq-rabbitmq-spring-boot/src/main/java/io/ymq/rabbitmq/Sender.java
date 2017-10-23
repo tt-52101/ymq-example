@@ -33,12 +33,24 @@ public class Sender {
     public void sendMS2(String context) {
 
         System.out.println("sendMS2 : " + context);
-        this.rabbitTemplate.convertAndSend("topicExchange", "topic.messages", context);
+        this.rabbitTemplate.convertAndSend("topicExchange", "topic.message.s", context);
     }
 
     public void sendMS3(String context) {
 
         System.out.println("sendMS3 : " + context);
         this.rabbitTemplate.convertAndSend("topicExchange", "topic.ymq", context);
+    }
+
+    public void sendMS4(String context) {
+
+        System.out.println("sendMS4 : " + context);
+        this.rabbitTemplate.convertAndSend("fanoutExchange", "topic.penglei.net", context);
+    }
+
+    public void sendMS5(String context) {
+
+        System.out.println("sendMS5 : " + context);
+        this.rabbitTemplate.convertAndSend("fanoutExchange", "topic.souyunku.com", context);
     }
 }
