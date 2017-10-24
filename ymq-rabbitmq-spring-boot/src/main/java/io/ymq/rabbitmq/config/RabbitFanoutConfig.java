@@ -15,9 +15,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitFanoutConfig {
 
-    final static String PENGLEI = "topic.penglei.net";
+    final static String PENGLEI = "fanout.penglei.net";
 
-    final static String SOUYUNKU = "topic.souyunku.com";
+    final static String SOUYUNKU = "fanout.souyunku.com";
     @Bean
     public Queue queuePenglei() {
         return new Queue(RabbitFanoutConfig.PENGLEI);
@@ -29,7 +29,7 @@ public class RabbitFanoutConfig {
     }
 
     /**
-     * 给 FanoutExchange 交换机发送消息，绑定了这个交换机的所有队列都收到这个消息。
+     * 任何发送到Fanout Exchange的消息都会被转发到与该Exchange绑定(Binding)的所有队列上。
      */
     @Bean
     FanoutExchange fanoutExchange() {

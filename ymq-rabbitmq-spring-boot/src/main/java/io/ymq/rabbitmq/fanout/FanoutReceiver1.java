@@ -11,12 +11,11 @@ import org.springframework.stereotype.Component;
  * @create 2017-10-23 15:38
  **/
 @Component
-@RabbitListener(queues = "topic.penglei.net")
+@RabbitListener(queues = "fanout.penglei.net")
 public class FanoutReceiver1 {
 
-
     @RabbitHandler
-    public void process(String messages) {
-        System.out.println("FanoutReceiver1 topic.penglei.net: " + messages);
+    public void process(String message) {
+        System.out.println("接收者 FanoutReceiver1," + message);
     }
 }

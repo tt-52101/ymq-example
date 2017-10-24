@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 public class TopicReceiver2 {
 
     @RabbitHandler
-    public void process(String messages) {
-        System.out.println("TopicReceiver2 topic.message.s: " + messages);
+    public void process(String message) {
+        System.out.println("接收者 TopicReceiver2," + message);
     }
 
 }
