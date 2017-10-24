@@ -22,6 +22,7 @@ import java.util.List;
  * @author jianghang 2013-4-15 下午04:17:12
  * @version 1.0.4
  */
+@SuppressWarnings("AlibabaAvoidNewDateGetTime")
 public class AbstractCanalClientTest {
 
     protected final static Logger logger = LoggerFactory.getLogger(AbstractCanalClientTest.class);
@@ -30,6 +31,7 @@ public class AbstractCanalClientTest {
     protected volatile boolean running = false;
     protected Thread.UncaughtExceptionHandler handler = new Thread.UncaughtExceptionHandler() {
 
+        @Override
         public void uncaughtException(Thread t, Throwable e) {
             logger.error("parse events has an error", e);
         }
@@ -69,6 +71,7 @@ public class AbstractCanalClientTest {
         Assert.notNull(connector, "connector is null");
         thread = new Thread(new Runnable() {
 
+            @Override
             public void run() {
                 process();
             }
@@ -156,7 +159,7 @@ public class AbstractCanalClientTest {
     protected static void printEntry(List<Entry> entrys) {
         for (Entry entry : entrys) {
             long executeTime = entry.getHeader().getExecuteTime();
-            long delayTime = new Date().getTime() - executeTime;
+            long delayTime = System.currentTimeMillis() - executeTime;
 
             if (entry.getEntryType() == EntryType.TRANSACTIONBEGIN || entry.getEntryType() == EntryType.TRANSACTIONEND) {
                 if (entry.getEntryType() == EntryType.TRANSACTIONBEGIN) {

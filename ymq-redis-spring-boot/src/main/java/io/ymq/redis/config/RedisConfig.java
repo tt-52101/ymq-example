@@ -18,7 +18,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig {
 
-    private Logger LOG = LoggerFactory.getLogger(RedisConfig.class);
+    private Logger logger = LoggerFactory.getLogger(RedisConfig.class);
 
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
@@ -30,7 +30,7 @@ public class RedisConfig {
         RedisTemplate<String, String> template = new RedisTemplate<String, String>();
         template.setConnectionFactory(jedisConnectionFactory());
         template.setKeySerializer(new StringRedisSerializer());
-        LOG.info("create RedisTemplate success");
+        logger.info("create RedisTemplate success");
         return template;
     }
 }

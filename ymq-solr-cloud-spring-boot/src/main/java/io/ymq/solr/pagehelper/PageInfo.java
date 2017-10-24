@@ -176,7 +176,8 @@ public class PageInfo<T> implements Serializable {
      */
     private void judgePageBoudary() {
         isFirstPage = pageNum == 1;
-        isLastPage = pageNum == pages || pages == 0;;
+        isLastPage = pageNum == pages || pages == 0;
+        ;
         hasPreviousPage = pageNum > 1;
         hasNextPage = pageNum < pages;
     }
@@ -368,11 +369,13 @@ public class PageInfo<T> implements Serializable {
         sb.append(", navigateFirstPage=").append(navigateFirstPage);
         sb.append(", navigateLastPage=").append(navigateLastPage);
         sb.append(", navigatepageNums=");
-        if (navigatepageNums == null) sb.append("null");
-        else {
+        if (navigatepageNums == null) {
+            sb.append("null");
+        } else {
             sb.append('[');
-            for (int i = 0; i < navigatepageNums.length; ++i)
+            for (int i = 0; i < navigatepageNums.length; ++i) {
                 sb.append(i == 0 ? "" : ", ").append(navigatepageNums[i]);
+            }
             sb.append(']');
         }
         sb.append('}');

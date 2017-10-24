@@ -128,7 +128,7 @@ public class BaseDao extends SqlSessionDaoSupport implements IBaseDao {
             return 0;
         }
         String className = setParameter.getClass().getName();
-        Map<String, Object> parameter = new HashMap<>();
+        Map<String, Object> parameter = new HashMap<String, Object>(2);
         parameter.put("s", setParameter);
         parameter.put("w", whereParameter);
         return update(className + POSTFIX_UPDATE_BY_ENTITY, parameter);

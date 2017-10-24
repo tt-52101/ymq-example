@@ -20,8 +20,8 @@ import redis.clients.jedis.Tuple;
 
 /**
  * 描述: 操作redis 工具类
- * author: yanpenglei
- * Date: 2017/10/13 15:01
+ * @author: yanpenglei
+ * @create: 2017/10/13 15:01
  */
 public class CacheUtils {
 
