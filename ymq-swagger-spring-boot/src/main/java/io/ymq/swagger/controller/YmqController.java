@@ -16,13 +16,11 @@ import java.util.*;
  * @create 2017-10-26 16:10
  **/
 @RestController
-@RequestMapping("/")
+@RequestMapping("/user")
 @Api(value = "YmqController 测试", description = "RESTful API")
 public class YmqController {
 
-
     static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
-
 
     @ApiOperation(value="获取用户列表", notes="")
     @RequestMapping(value={""}, method= RequestMethod.GET)
