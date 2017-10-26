@@ -56,8 +56,6 @@
     </dependencies>
 
 
-
-
     <build>
 
         <resources>
@@ -83,8 +81,30 @@
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
-            <plugin>
-                <!-- 手动执行 mvn compile 即可生成 swagger.yaml 文件 -->
+
+
+            <!--
+             手动执行 mvn compile 即可生成 swagger.yaml 文件
+
+             此插件 生成的   swagger.yaml 文件内容
+
+               "parameters": [
+                            {
+                                "name": "",
+
+                        name 为空，影响 swagger2markup-maven-plugin 生成MARKDOWN 文档，等待 开源作者解决
+
+            解决方法：
+            在浏览器：http://127.0.0.1:8080/v2/api-docs  生成  swagger.yaml 文件内容
+
+             -->
+
+            <!--
+               手动执行 mvn compile 即可生成 swagger.yaml 文件
+            -->
+
+            <!--
+             <plugin>
                 <groupId>com.github.kongchen</groupId>
                 <artifactId>swagger-maven-plugin</artifactId>
                 <version>3.1.5</version>
@@ -118,7 +138,8 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
+
             <plugin>
                 <!--手动执行mvn swagger2markup:convertSwagger2markup即可生成markdown文档-->
                 <groupId>io.github.swagger2markup</groupId>
