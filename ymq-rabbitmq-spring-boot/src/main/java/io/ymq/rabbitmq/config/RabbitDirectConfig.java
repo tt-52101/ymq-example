@@ -35,8 +35,8 @@ public class RabbitDirectConfig {
     //绑定一个key "direct"，当消息匹配到就会放到这个队列中
     @Bean
     Binding bindingExchangeMessage(Queue directQueue, DirectExchange directExchange) {
-        return BindingBuilder.bind(directQueue).to(directExchange).with("directExchange");
+        return BindingBuilder.bind(directQueue).to(directExchange).with("direct");
     }
-    // 推荐使用 helloQueue（） 方法写法，这种方式在 Direct Exchange 多此一举，没必要这样写
+    // 推荐使用 helloQueue（） 方法写法，这种方式在 Direct Exchange 模式 多此一举，没必要这样写
     //---------------------------------------------------------------------------------------------
 }

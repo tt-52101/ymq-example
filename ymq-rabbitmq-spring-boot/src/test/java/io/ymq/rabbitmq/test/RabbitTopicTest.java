@@ -28,7 +28,7 @@ public class RabbitTopicTest {
 
         String routeKey = "topic.message";
 
-        String exchange = "fanoutExchange";
+        String exchange = "topicExchange";
 
         context = "context:" + exchange + ",routeKey:" + routeKey + ",context:" + context;
 
@@ -45,7 +45,7 @@ public class RabbitTopicTest {
 
         String routeKey = "topic.message.s";
 
-        String exchange = "fanoutExchange";
+        String exchange = "topicExchange";
 
         context = "context:" + exchange + ",routeKey:" + routeKey + ",context:" + context;
 
@@ -61,7 +61,7 @@ public class RabbitTopicTest {
 
         String routeKey = "topic.ymq";
 
-        String exchange = "fanoutExchange";
+        String exchange = "topicExchange";
 
         context = "context:" + exchange + ",routeKey:" + routeKey + ",context:" + context;
 
