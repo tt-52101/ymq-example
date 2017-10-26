@@ -4,20 +4,21 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 描述: 
+ * 描述:
+ *
  * @author: yanpenglei
- * @create: 2017/10/26 16:19 
+ * @create: 2017/10/26 16:19
  */
-@ApiModel(value = "User", description = "请求入参 User ")
+@ApiModel(value = "User", description = "请求入参 User")
 public class User {
 
-    @ApiModelProperty(value = "id", required = true)
+    @ApiModelProperty(value = "id")
     private Long id;
 
-    @ApiModelProperty(value = "姓名", required = true)
+    @ApiModelProperty(value = "姓名")
     private String name;
 
-    @ApiModelProperty(value = "年龄", required = true)
+    @ApiModelProperty(value = "年龄")
     private Integer age;
 
     public Long getId() {
