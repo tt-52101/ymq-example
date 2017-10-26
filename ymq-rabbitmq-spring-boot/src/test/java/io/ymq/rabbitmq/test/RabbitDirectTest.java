@@ -24,7 +24,7 @@ public class RabbitDirectTest {
     @Test
     public void sendHelloTest() {
 
-        String context = "此消息在，广播模式或者订阅模式队列下，有 helloReceiver 可以收到";
+        String context = "此消息在，默认的交换机模式队列下，有 helloReceiver 可以收到";
 
         String routeKey = "hello";
 
@@ -38,7 +38,7 @@ public class RabbitDirectTest {
     @Test
     public void sendDirectTest() {
 
-        String context = "此消息在，广播模式或者订阅模式队列下，有 DirectReceiver 可以收到";
+        String context = "此消息在，默认的交换机模式队列下，有 DirectReceiver 可以收到";
 
         String routeKey = "direct";
 
