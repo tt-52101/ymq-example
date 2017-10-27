@@ -14,7 +14,6 @@
     <packaging>jar</packaging>
 
     <dependencies>
-
         <dependency>
             <groupId>io.ymq.example</groupId>
             <artifactId>dubbo-api</artifactId>
@@ -65,7 +64,6 @@
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
