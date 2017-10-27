@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.ymq.example</groupId>
-    <artifactId>io.ymq.alibaba.otter.canal</artifactId>
+    <artifactId>alibaba-otter-canal</artifactId>
     <packaging>jar</packaging>
 
     <version>1.0-SNAPSHOT</version>
