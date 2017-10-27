@@ -21,7 +21,7 @@ public class ConsumerDemoService {
     private DemoService demoService;
 
     public void sayHello(String name) {
-        String hello = demoService.sayHello("world"); // 执行远程方法
+        String hello = demoService.sayHello(name); // 执行远程方法
         System.out.println(hello); // 显示调用结果
     }
 
