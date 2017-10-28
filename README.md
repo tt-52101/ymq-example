@@ -38,3 +38,7 @@
 ### ymq-mybatis-spring-boot
 
 [Spring Boot 中使用 MyBatis 整合 Druid 多数据源](http://www.ymq.io/2017/10/20/mybatis-spring-boot-example/)
+
+### ymq-dubbo-spring-boot
+
+[Spring Boot 中使用 Dubbo 详解](http://www.ymq.io/2017/10/27/dubbo-spring-boot-example/)
