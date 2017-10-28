@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * 描述:
+ * 描述: 测试消费远程服务
  *
  * @author yanpenglei
  * @create 2017-10-27 14:15
