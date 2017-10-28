@@ -10,7 +10,6 @@ import org.springframework.context.annotation.PropertySource;
  * @author yanpenglei
  * @create 2017-10-27 13:26
  **/
-
 @Configuration
 @PropertySource("classpath:dubbo.properties")
 @ImportResource({"classpath:dubbo/*.xml"})

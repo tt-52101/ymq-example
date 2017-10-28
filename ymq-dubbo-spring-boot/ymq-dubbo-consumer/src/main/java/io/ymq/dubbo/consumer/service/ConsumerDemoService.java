@@ -1,12 +1,8 @@
 package io.ymq.dubbo.consumer.service;
 
-import com.alibaba.dubbo.rpc.RpcContext;
 import io.ymq.dubbo.api.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * 描述: 消费远程方法
@@ -21,7 +17,7 @@ public class ConsumerDemoService {
     private DemoService demoService;
 
     public void sayHello(String name) {
-        String hello = demoService.sayHello(name); // 执行远程方法
+        String hello = demoService.sayHello(name); // 执行消费远程方法
         System.out.println(hello); // 显示调用结果
     }
 

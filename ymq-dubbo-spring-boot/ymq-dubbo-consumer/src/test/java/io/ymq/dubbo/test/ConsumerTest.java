@@ -18,7 +18,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes = Startup.class)
 public class ConsumerTest {
 
-
     @Autowired
     private ConsumerDemoService consumerDemoService;
 
