@@ -1,4 +1,4 @@
-package io.ymq.example.demo1;
+package io.ymq.example.socket;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
